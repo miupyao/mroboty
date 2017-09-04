@@ -36,14 +36,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
+        'urlManager'=>[
+            'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
+            'rules'=>[
+                '<controller:(post|comment)>/<id:\d+>/<action:(create|update|delete)>' =>'<controller>/<action>',
+                '<controller:(post|comment)>/<id:\d+>' => '<controller>/read',
+                '<controller:(post|comment)>s' => '<controller>/list',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

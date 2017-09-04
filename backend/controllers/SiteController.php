@@ -26,7 +26,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index','send'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -63,6 +63,19 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionSend()
+    {
+        $mail= Yii::$app->mailer->compose();
+        $mail->setTo('931675886@qq.com');
+        $mail->setSubject("邮件测试");
+        //$mail->setTextBody('zheshisha ');   //发布纯文字文本
+        $mail->setHtmlBody("<br>问我我我我我");    //发布可以带html标签的文本
+        if($mail->send())
+            echo "success";
+        else
+            echo "failse";
+        die();
+    }
     /**
      * Login action.
      *
