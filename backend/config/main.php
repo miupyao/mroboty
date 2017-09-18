@@ -47,7 +47,16 @@ return [
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
             ],
         ],
-        
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,
+                    'js' => [
+                        //如何设置本地jquery文件路径
+                    ]
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];
