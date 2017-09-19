@@ -11,8 +11,26 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'language'=>'zh-EN',
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'cn' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '/messages',
+                    'fileMap' => [
+                        'cn' => 'common.php',
+                    ],
+                ],
+                'en' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '/messages',
+                    'fileMap' => [
+                        'en' => 'common.php',
+                    ],
+                ],
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
@@ -37,7 +55,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'urlManager' => [
+        /*'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'suffix'=>'.html',
@@ -46,7 +64,7 @@ return [
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
             ],
-        ],
+        ],*/
         'assetManager' => [
             'bundles' => [
                 'yii\web\JqueryAsset' => [
@@ -56,6 +74,11 @@ return [
                     ]
                 ],
             ],
+        ],
+    ],
+    'modules' => [              // 模块配置
+        'calendar' => [
+            'class' => 'backend\modules\calendar\CalendarModule',
         ],
     ],
     'params' => $params,
