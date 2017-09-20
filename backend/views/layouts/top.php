@@ -17,11 +17,6 @@ $this->registerCssFile('@web/boostrap/bower_components/bootstrap-datepicker/dist
 $this->registerCssFile('@web/boostrap/bower_components/bootstrap-daterangepicker/daterangepicker.css');
 $this->registerCssFile('@web/boostrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css');
 ?>
-<?php
-
-
-
-?>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 

@@ -55,7 +55,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*'urlManager' => [
+        'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'suffix'=>'.html',
@@ -64,7 +64,7 @@ return [
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
             ],
-        ],*/
+        ],
         'assetManager' => [
             'bundles' => [
                 'yii\web\JqueryAsset' => [
@@ -79,6 +79,9 @@ return [
     'modules' => [              // 模块配置
         'calendar' => [
             'class' => 'backend\modules\calendar\CalendarModule',
+        ],
+        'user' => [
+            'class' =>'backend\modules\user\UserModule',
         ],
     ],
     'params' => $params,

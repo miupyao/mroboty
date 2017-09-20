@@ -5,7 +5,7 @@ namespace backend\modules\user;
 /**
  * User module definition class
  */
-class controllers extends \yii\base\Module
+class UserModule extends \yii\base\Module
 {
     /**
      * @inheritdoc

@@ -42,7 +42,7 @@ use yii\helpers\Url;
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="index.html"><i class="fa fa-users"></i> <?php echo Yii::t('en','admin');?></a></li>
+                    <li class="active"><a href="<?php echo \Yii::$app->urlManager->createUrl(['user/user/index'])?>"><i class="fa fa-users"></i> <?php echo Yii::t('en','admin');?></a></li>
                     <li><a href="index2.html"><i class="fa fa-user"></i> <?php echo Yii::t('en','role');?></a></li>
                     <li><a href="index2.html"><i class="fa fa-user-times"></i> <?php echo Yii::t('en','permission');?></a></li>
                     <li><a href="index2.html"><i class="fa fa-user-secret"></i> <?php echo Yii::t('en','route');?></a></li>
