@@ -26,6 +26,7 @@ class User extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public $password;
     public static function tableName()
     {
         return 'user';
@@ -39,12 +40,12 @@ class User extends \yii\db\ActiveRecord
         return [
             [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
             [['status', 'created_at', 'updated_at' ,'audit'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email' ], 'string', 'max' => 255],
+            [['username', 'password_hash', 'password_reset_token', 'email','avatar' ], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
+            [['intro'],'string'],
             [['username'], 'unique'],
             [['email'], 'unique'],
             [['password_reset_token'], 'unique'],
-            [['avatar'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -61,6 +62,7 @@ class User extends \yii\db\ActiveRecord
             'password_reset_token' => Yii::t('app', 'Password Reset Token'),
             'email' => Yii::t('app', 'Email'),
             'status' => Yii::t('app', 'Status'),
+            'info' => Yii::t('app', 'Info'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
             'avatar' => Yii::t('app', 'Avatar'),
@@ -75,22 +77,14 @@ class User extends \yii\db\ActiveRecord
     {
         return new UserQuery(get_called_class());
     }
-    public function add()
+    public function addUser()
     {
         $this->created_at = time();
         $this->updated_at = time();
-        $this->password_hash = Yii::$app->security->generatePasswordHash($this->password_hash);
+        $this->password_hash = Yii::$app->security->generatePasswordHash($this->password);
         $this->auth_key = Yii::$app->security->generateRandomString();
-        if($this->validate())
-        {
-            return $this->save()?$this : null;
-        }
-    }
-    public function upload()
-    {
         if ($this->validate()) {
-            $this->avatar->saveAs('uploads/avatar/' . $this->avatar->baseName . '.' . $this->avatar->extension);
-            return true;
+            return $this->save()?true:$this->errors;
         } else {
             return false;
         }

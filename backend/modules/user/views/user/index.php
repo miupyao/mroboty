@@ -284,18 +284,21 @@
             <!-- /.col -->
         </div>
         <!-- /.row -->
+
         <div class="row">
             <div class="col-xs-12">
+
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Responsive Hover Table</h3>
 
                         <div class="box-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
+                            <div class="input-group input-group-sm" style="width: 50px;">
+                                <?php /*$form = yii\bootstrap\ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) */?><!--
+                                <?/*= $form->field($model,'search',['inputOptions'=>['class'=>'form-control pull-right','placeholder'=>'username/email']])->textInput()->label(false);*/?>
+                                --><?php /*yii\bootstrap\ActiveForm::end();*/?>
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    <!--<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>-->
                                     <a href='<?php echo \Yii::$app->urlManager->createUrl(['user/user/add'])?>' class="btn btn-success btn-xs">Add</a>
                                 </div>
                             </div>
@@ -338,31 +341,14 @@
                                     </td>
                                 <td><?php echo $v->intro;?></td>
                                 <td>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
+                                        删除
+                                    </button>
                                     <a href='<?php echo \Yii::$app->urlManager->createUrl(['user/user/edit','id'=>$v->id])?>' class="btn btn-primary btn-xs">Edit</a>
+                                    <a href='<?php echo \Yii::$app->urlManager->createUrl(['user/user/del','id'=>$v->id])?>' class="btn btn-danger btn-xs">Del</a>
                                 </td>
                             </tr>
                             <?php };?>
-                            <tr>
-                                <td>219</td>
-                                <td>Alexander Pierce</td>
-                                <td>11-7-2014</td>
-                                <td><span class="label label-warning">Pending</span></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            </tr>
-                            <tr>
-                                <td>657</td>
-                                <td>Bob Doe</td>
-                                <td>11-7-2014</td>
-                                <td><span class="label label-primary">Approved</span></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            </tr>
-                            <tr>
-                                <td>175</td>
-                                <td>Mike Doe</td>
-                                <td>11-7-2014</td>
-                                <td><span class="label label-danger">Denied</span></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            </tr>
                         </table>
                     </div>
                     <!-- /.box-body -->
@@ -374,9 +360,11 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
+
                 <!-- /.box -->
             </div>
         </div>
+
     </section>
     <!-- /.content -->
 </div>

@@ -32,7 +32,7 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <?php $form = yii\bootstrap\ActiveForm::begin(['options' => ['enctype'=>'multipart/form-data']]);?>
+                    <?php $form = yii\bootstrap\ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
                         <div class="box-body">
                             <?=
                                 $form->field($model,'username',['inputOptions'=>['placeholder'=>'username']])->textInput();
@@ -41,10 +41,10 @@
                                 $form->field($model,'email',['inputOptions'=>['placeholder'=>'email']])->textInput();
                             ?>
                             <?=
-                                $form->field($model,'password_hash',['inputOptions'=>['placeholder'=>'password']])->passwordInput();
+                                $form->field($model,'intro',['inputOptions'=>['placeholder'=>'intro']])->textInput();
                             ?>
                             <?=
-                                $form->field($model,'avatar')->fileInput();
+                                $form->field($model,'password',['inputOptions'=>['placeholder'=>'password']])->passwordInput();
                             ?>
                         </div>
                         <!-- /.box-body -->
@@ -52,7 +52,7 @@
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-                    <?php yii\bootstrap\ActiveForm::end();?>
+                    <?php $form = yii\bootstrap\ActiveForm::end();?>
                 </div>
                 <!-- /.box -->
 
